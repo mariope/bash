@@ -22,7 +22,7 @@ sed 's/\/cs/www.madrid.org\/cs/g' output.html >> output2.html
 
 
 # send output by sendgrid mail
-SGTO=mario.pisa@gmail.com
+SGTO=name@gmail.com
 SGTONAME='Mariope'
 SGSUBJECT='Output from CAM '$(date)
 SGFROM=mariope.develop@gmail.com
