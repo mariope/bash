@@ -18,6 +18,6 @@ source="Source=$FROM"
 to="Destination.ToAddresses.member.1=$TO"
 subject="Message.Subject.Data=$SUBJECT"
 xmllint --html --xpath "//body" barronsCOT.html 2>/dev/null >> barronsCOT2.html
-message="Message.Body.Html.Data="'{"image" : "'"$(base64 barronsCOT2.html)"'"}'
-
+message="Message.Body.Html.Data="$(cat barronsCOT2.html)
+# message="Message.Body.Html.Data="'{"image" : "'"$(base64 barronsCOT2.html)"'"}'
 curl -v -X POST -H "Date: $date" -H "$content_type" -H "$mime_version" -H "$auth_header" --data-urlencode "$message" --data-urlencode "$to" --data-urlencode "$source" --data-urlencode "$action" --data-urlencode "$subject" "$endpoint"
